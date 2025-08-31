@@ -6,7 +6,11 @@
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"start": "node index.js",
 		"dev": "nodemon index.js",
-		"build": "echo 'No build step required'"
+		"build": "npm run prebuild && npm run validate && npm run postbuild",
+		"prebuild": "echo '🚀 Starting build process...' && npm ci --only=production",
+		"validate": "echo '🔍 Validating application...' && node -c index.js",
+		"postbuild": "echo '✅ Build completed successfully! Ready for production deployment.'",
+		"build:dev": "npm install && npm run validate"
 	},
 	"type": "module",
 	"keywords": [],
