@@ -2,6 +2,7 @@ import { config } from "dotenv";
 import express from "express";
 import mongoose from "mongoose";
 import nodemailer from "nodemailer";
+import path from "path";
 
 config();
 
@@ -10,8 +11,11 @@ const app = express();
 // set template engine as ejs
 app.set("view engine", "ejs");
 
+// Set views directory for serverless (relative to project root)
+app.set("views", path.join(process.cwd(), "views"));
+
 // set public folder as static folder
-app.use(express.static("public"));
+app.use(express.static(path.join(process.cwd(), "public")));
 
 app.use(express.urlencoded({ extended: true }));
 
@@ -149,12 +153,28 @@ app.get("/about", (req, res) => {
 });
 
 const runServer = async () => {
-	await mongoose.connect(process.env.DB_URI);
-	console.log("Database connected");
+	try {
+		if (!process.env.DB_URI) {
+			console.log(
+				"Warning: DB_URI not found. Database features will be disabled."
+			);
+			return;
+		}
+		await mongoose.connect(process.env.DB_URI);
+		console.log("Database connected");
+	} catch (error) {
+		console.error("Database connection error:", error);
+	}
 };
 
 // Initialize database connection
 runServer();
+
+// Add error handling for routes
+app.use((err, req, res, next) => {
+	console.error("Error:", err);
+	res.status(500).send("Internal Server Error: " + err.message);
+});
 
 // For local development
 if (process.env.NODE_ENV !== "production") {
