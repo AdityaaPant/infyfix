@@ -1,0 +1,25 @@
+{
+	"name": "infyfix-hack",
+	"version": "1.0.0",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "npm install && nodemon index.js",
+		"start:prod": "PORT=8006 node index.js"
+	},
+	"type": "module",
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"description": "",
+	"dependencies": {
+		"@types/express": "^4.17.21",
+		"dotenv": "^16.4.5",
+		"ejs": "^3.1.10",
+		"express": "^4.19.2",
+		"mongodb": "^6.8.1",
+		"mongoose": "^8.6.1",
+		"nodemailer": "^6.9.15",
+		"nodemon": "^3.1.4"
+	}
+}

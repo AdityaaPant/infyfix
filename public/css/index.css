@@ -1,0 +1,183 @@
+.hero-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.hero-section {
+	display: flex;
+	align-items: center;
+}
+
+.main-heading {
+	font-family: inter;
+	font-size: 4rem;
+	font-weight: 700;
+}
+
+.inter-content {
+	font-family: inter;
+	font-size: 1.6rem;
+}
+.color-text {
+	color: var(--primaryLight);
+}
+
+.hero-image {
+	height: 48rem;
+	width: 48rem;
+	margin-left: 5rem;
+}
+
+.available {
+	background-color: var(--backgroundLight);
+}
+.text {
+	padding-top: 5rem;
+	padding-bottom: 0;
+}
+
+.heading {
+	font-family: inter;
+	font-size: 3.5rem;
+	text-align: center;
+}
+.hero-heading {
+	font-family: inter;
+	font-size: 4rem;
+}
+.inner-heading {
+	font-size: 1.4rem;
+}
+.tick-image {
+	background-color: var(--primaryLight);
+	border-radius: 60%;
+	height: 1.6rem;
+	width: 1.6rem;
+	padding: 3px 3px 3px 3px;
+}
+.hero-first {
+	padding: 3rem;
+	width: 60%;
+}
+.tick {
+	display: flex;
+}
+
+.points {
+	margin-left: 1.5rem;
+	font-size: 1.5rem;
+}
+.services {
+	display: flex;
+	margin: 10rem;
+	border: rem;
+	border-color: var(--backgroundTransparent);
+	border-width: 0.5rem;
+	border-style: solid;
+	align-items: center;
+	justify-content: space-evenly;
+	padding: 5rem 2rem;
+	border-radius: 1rem;
+}
+
+.image-hero {
+	width: 50%;
+}
+
+.image-sec {
+	height: auto;
+	width: 100%;
+}
+
+.services--reverse {
+	flex-direction: row-reverse;
+}
+
+.inner-content {
+	font-size: 1.4rem;
+	width: 70ch;
+}
+
+.testi {
+	text-align: center;
+	margin-bottom: 5rem;
+}
+.test {
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.testimonial-card {
+	background-color: var(--backgroundTransparent);
+	width: 300px;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	text-align: center;
+}
+
+.testimonial-card img {
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	margin-bottom: 20px;
+	margin-left: 1rem;
+	margin-top: 2rem;
+}
+
+h2 {
+	margin-top: 1rem;
+	margin-bottom: 10px;
+	font-size: 20px;
+}
+
+.rating img {
+	padding: 0;
+	margin-bottom: 2rem;
+	height: 2rem;
+	border-radius: 0;
+}
+
+p {
+	font-size: 14px;
+	color: #bbb;
+	margin-bottom: 20px;
+}
+
+.second-button {
+	margin-left: 22px;
+	border: none;
+	background-color: var(--backgroundTransparent);
+	color: aliceblue;
+	height: 47px;
+	width: 167px;
+	font-size: 16px;
+	font-weight: 700;
+	border: none;
+	border-radius: 0.8rem;
+	cursor: pointer;
+	box-shadow: black;
+}
+
+.know_more {
+	color: white;
+	text-decoration: none;
+}
+.know_more:hover {
+	color: white;
+	text-decoration: none;
+}
+.button--test {
+	text-align: center;
+	justify-content: center;
+	margin-left: 65rem;
+	margin-top: 6rem;
+	margin-bottom: 5rem;
+}
+.testimonials {
+	background-color: var(--backgroundDark);
+	padding: 4rem 0;
+}
+.testimonial-container {
+	margin-bottom: 216px;
+}

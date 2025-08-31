@@ -1,0 +1,90 @@
+.tably {
+	width: 130rem;
+	margin: 0 auto;
+	border-collapse: collapse;
+	margin-top: 5.2rem;
+	margin-bottom: 5.2rem;
+	font-size: 2rem;
+}
+
+.tably th,
+.tably td {
+	padding: 8px;
+	text-align: center;
+}
+
+thead {
+	border-radius: 12px;
+}
+
+/* Ensure the header is sticky */
+.tably thead th {
+	position: sticky;
+	top: 0;
+	background-color: #333; /* Background color for the header */
+	color: #fff;
+	font-weight: bold; /* Make only header bold */
+	border-bottom: 1px solid #fff;
+	z-index: 1;
+}
+
+.tably td {
+	font-weight: normal; /* Content should not be bold */
+}
+
+/* Remove left and right borders from rows */
+.tably td:first-child,
+.tably td:last-child {
+	border-left: none;
+	border-right: none;
+}
+
+/* Alternate row colors */
+.tably tbody tr:nth-child(odd) {
+	background-color: var(--backgroundTransparent); /* Light color for odd rows */
+}
+
+.tably tbody tr:nth-child(even) {
+	background-color: var(
+		--backgroundDark
+	); /* Transparent or dark background for even rows */
+}
+
+.tably tbody tr {
+	border-bottom: 1px solid #fff;
+}
+
+.tably td,
+.tably th {
+	border: none;
+	font-weight: 400;
+}
+
+.action-btn {
+	background-color: #5a38ba;
+	border: none;
+	color: #fff;
+	font-size: 16px;
+	cursor: pointer;
+	margin: 0 5px;
+	padding: 10px;
+	border-radius: 16px;
+	display: inline-flex;
+	align-items: center;
+	width: 167px;
+	height: 47px;
+}
+
+.action-btn i {
+	margin: 0;
+}
+
+.action-btn:hover {
+	background-color: #4a2c8c;
+}
+
+.action-buttons {
+	margin-top: 1rem;
+	display: flex;
+	align-items: center;
+}

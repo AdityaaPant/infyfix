@@ -1,0 +1,63 @@
+.navbar {
+	display: flex;
+	justify-content: center;
+}
+.nav_main {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	background-color: var(--backgroundTransparent);
+	width: 108rem;
+	height: 9rem;
+	padding: 33px;
+	align-items: center;
+	border-radius: 1.8rem;
+	margin-top: 5rem;
+}
+
+.nav_main a:hover {
+	color: white;
+}
+
+.brand_name {
+	font-size: 2.2rem;
+	color: white;
+	text-decoration: none;
+
+	margin-right: 4.7rem;
+	font-weight: bold;
+}
+
+.nav--link {
+	font-size: 1.4rem;
+	color: white;
+	text-decoration: none;
+	margin-right: 2.5rem;
+	font-weight: bold;
+}
+.nav--link:hover {
+	color: grey;
+}
+.button_get {
+	color: white;
+	background-color: var(--primary);
+	width: 167px;
+	height: 47px;
+	font-size: 16px;
+
+	border: none;
+	border-radius: 0.8rem;
+	cursor: pointer;
+	font-weight: 700;
+	box-shadow: 1px 2px 4px 3px #5a38b878;
+}
+.button_get a {
+	text-decoration: none;
+	color: white;
+	font-size: 16px;
+}
+.nav_right button:hover {
+	background-color: #462897;
+	transition: 0.5s;
+}

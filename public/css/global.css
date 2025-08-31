@@ -1,0 +1,36 @@
+:root {
+	--backgroundDark: #071018;
+	--backgroundLight: #0e1821;
+	--primary: #5a38ba;
+	--primaryLight: #674fc2;
+	--backgroundTransparent: #ffffff25;
+
+	--servicesHeadingGrey: #94a3b8;
+}
+
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: inherit;
+}
+
+body {
+	box-sizing: border-box;
+}
+
+::selection {
+	background-color: var(--primary);
+	color: white;
+}
+
+body {
+	background: var(--backgroundDark);
+	color: white;
+	font-family: "Inter", sans-serif;
+}
+
+html {
+	font-size: 62.5%; /* 1rem = 10px */
+}

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Contact</title>
+
+		<%- include('./util/header.ejs') %>
+
+		<link rel="stylesheet" href="/css/contact.css" />
+		<style>
+			button {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+
+			/* Add custom styles for the loading spinner */
+			.spinner {
+				display: none;
+				border: 2px solid white; /* Light grey */
+				border-radius: 50%;
+				width: 20px;
+				height: 20px;
+				margin-left: 5px;
+				animation: spin 1s linear infinite;
+			}
+
+			@keyframes spin {
+				0% {
+					transform: rotate(0deg);
+				}
+				100% {
+					transform: rotate(360deg);
+				}
+			}
+
+			.error-message {
+				color: red;
+				font-size: 12px;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<%- include('./util/navbar.ejs') %> <% if (success) { %>
+		<div
+			class="alert alert-success"
+			role="alert"
+			style="
+				font-size: 2rem;
+				margin: 0 4rem;
+				margin-top: 4rem;
+				display: flex;
+				justify-content: space-between;
+			"
+		>
+			<span> Contact submitted successfully </span>
+			<a href="/contact" style="text-decoration: none; color: inherit"
+				>&cross;</a
+			>
+		</div>
+
+		<% } %>
+		<div class="main_container">
+			<div class="contact-container">
+				<div class="contact_img">
+					<img src="/images/contact.svg" alt="" class="img_contact" />
+				</div>
+				<form
+					action="/contact"
+					method="post"
+					class="contact_form"
+					id="contactForm"
+				>
+					<div class="name">
+						<label for="name">Name:</label> <br />
+						<input
+							type="text"
+							id="name"
+							name="name"
+							placeholder="Enter your name"
+						/>
+						<div class="error-message" id="nameError">Name is required.</div>
+					</div>
+					<div class="Email">
+						<label for="email">Email:</label> <br />
+						<input
+							type="email"
+							id="email"
+							name="email"
+							placeholder="Enter your email"
+						/>
+						<div class="error-message" id="emailError">
+							Please enter a valid email.
+						</div>
+					</div>
+					<div class="phone">
+						<label for="phone">Phone:</label> <br />
+						<input
+							type="tel"
+							id="phone"
+							name="phone"
+							placeholder="Enter your phone number"
+						/>
+						<div class="error-message" id="phoneError">
+							Please enter a valid 10-digit phone number.
+						</div>
+					</div>
+					<div class="subject">
+						<label for="subject">Subject:</label> <br />
+						<input
+							type="text"
+							id="subject"
+							name="subject"
+							placeholder="Enter your subject"
+						/>
+						<div class="error-message" id="subjectError">
+							Subject is required.
+						</div>
+					</div>
+					<div class="message">
+						<label for="message">Message:</label> <br />
+						<textarea
+							id="message"
+							name="message"
+							placeholder="Enter your message"
+						></textarea>
+						<div class="error-message" id="messageError">
+							Message is required.
+						</div>
+					</div>
+					<div class="submit">
+						<button type="submit" class="button_get">
+							<span> Submit </span>
+
+							<span class="spinner" id="spinner"></span>
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<%- include('./util/footer.ejs') %>
+
+		<script>
+			const form = document.getElementById("contactForm");
+			const spinner = document.getElementById("spinner");
+			const nameInput = document.getElementById("name");
+			const emailInput = document.getElementById("email");
+			const phoneInput = document.getElementById("phone");
+			const subjectInput = document.getElementById("subject");
+			const messageInput = document.getElementById("message");
+
+			const nameError = document.getElementById("nameError");
+			const emailError = document.getElementById("emailError");
+			const phoneError = document.getElementById("phoneError");
+			const subjectError = document.getElementById("subjectError");
+			const messageError = document.getElementById("messageError");
+
+			// Function to validate email format
+			function validateEmail(email) {
+				const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+				return re.test(email);
+			}
+
+			// Function to validate phone number (10 digits only)
+			function validatePhone(phone) {
+				const re = /^[0-9]{10}$/;
+				return re.test(phone);
+			}
+
+			form.addEventListener("submit", function (e) {
+				// Reset error messages
+				nameError.style.display = "none";
+				emailError.style.display = "none";
+				phoneError.style.display = "none";
+				subjectError.style.display = "none";
+				messageError.style.display = "none";
+
+				let isValid = true;
+
+				// Check if name is not empty
+				if (nameInput.value.trim() === "") {
+					nameError.style.display = "block";
+					isValid = false;
+				}
+
+				// Validate email
+				if (
+					emailInput.value.trim() === "" ||
+					!validateEmail(emailInput.value)
+				) {
+					emailError.style.display = "block";
+					isValid = false;
+				}
+
+				// Validate phone (only digits and 10 characters)
+				if (
+					phoneInput.value.trim() === "" ||
+					!validatePhone(phoneInput.value)
+				) {
+					phoneError.style.display = "block";
+					isValid = false;
+				}
+
+				// Check if subject is not empty
+				if (subjectInput.value.trim() === "") {
+					subjectError.style.display = "block";
+					isValid = false;
+				}
+
+				// Check if message is not empty
+				if (messageInput.value.trim() === "") {
+					messageError.style.display = "block";
+					isValid = false;
+				}
+
+				// If form is not valid, prevent submission
+				if (!isValid) {
+					e.preventDefault();
+					spinner.style.display = "none"; // Hide spinner if validation fails
+					form.querySelector('button[type="submit"]').disabled = false; // Re-enable submit button
+				} else {
+					// Show spinner on form submit
+					spinner.style.display = "block";
+					// Disable submit button to prevent multiple submissions
+					form.querySelector('button[type="submit"]').disabled = true;
+				}
+			});
+		</script>
+	</body>
+</html>

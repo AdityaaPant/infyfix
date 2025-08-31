@@ -1,0 +1,72 @@
+/* .about-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100% !important;
+} */
+
+.missing-heading {
+	font-size: 4rem;
+}
+.main-about-head {
+	font-size: 3rem !important;
+}
+.about-content {
+	font-size: 1.6rem;
+	color: #94a3b8;
+}
+.about-img {
+	width: 50rem;
+	border-radius: 20px;
+	height: auto;
+}
+h1.display-5.fw-bold.lh-1.mission-heading.mision-text.mb-5 {
+	margin-left: 1.5rem;
+}
+
+.stats h3 {
+	font-size: 4rem;
+}
+.stats p {
+	font-size: 2rem;
+	color: #ffffff50;
+}
+.stats h3 p {
+	text-align: center;
+}
+.team-text h2 {
+	font-size: 3.5rem;
+}
+.team2 {
+	padding: 15px 15px;
+	border-radius: 20px;
+	background-color: #ffffff10 !important;
+	width: 75%;
+}
+.name-title {
+	font-size: 2rem;
+}
+.role {
+	font-size: 1.5rem;
+}
+
+.team2 {
+	padding: 25px 15px;
+	border-radius: 20px;
+	background-color: #ffffff25;
+	width: 75%;
+}
+.team img {
+	text-align: center;
+	margin-left: 3.5rem;
+}
+.team2 p {
+	font-size: 1.5rem;
+	margin: 0px;
+}
+.text-margin {
+	margin-top: 13.5rem !important;
+}
+footer {
+	margin-top: 1rem !important;
+}
