@@ -150,11 +150,19 @@ app.get("/about", (req, res) => {
 
 const runServer = async () => {
 	await mongoose.connect(process.env.DB_URI);
-
 	console.log("Database connected");
-
-	await app.listen(process.env.PORT || 8000);
-	console.log(`Server is running on port ${process.env.PORT}`);
 };
 
+// Initialize database connection
 runServer();
+
+// For local development
+if (process.env.NODE_ENV !== "production") {
+	const PORT = process.env.PORT || 8000;
+	app.listen(PORT, () => {
+		console.log(`Server is running on port ${PORT}`);
+	});
+}
+
+// Export the app for Vercel
+export default app;
